@@ -1,0 +1,242 @@
+/* =========================================
+   PENGATURAN DASAR (RESET) & VARIABEL
+   ========================================= */
+:root {
+  --primary-blue: #0056b3;    /* Warna biru utama */
+  --light-blue: #e7f1ff;      /* Warna biru muda untuk background */
+  --dark-blue: #003366;       /* Warna biru gelap untuk teks/hover */
+  --white: #ffffff;           /* Warna putih bersih */
+  --gray: #f4f7f6;            /* Abu-abu sangat muda untuk variasi bg */
+  --text-color: #333333;      /* Warna teks utama */
+  --transition: all 0.3s ease; /* Durasi transisi halus */
+}
+
+* {
+  margin: 0;                  /* Menghapus margin bawaan browser */
+  padding: 0;                 /* Menghapus padding bawaan browser */
+  box-sizing: border-box;     /* Ukuran elemen dihitung termasuk border & padding */
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins dari Google Fonts */
+  line-height: 1.6;           /* Mengatur jarak antar baris teks */
+  color: var(--text-color);   /* Warna teks default */
+  background-color: var(--white);
+  scroll-behavior: smooth;    /* Efek scroll halus saat klik menu navigasi */
+}
+
+a {
+  text-decoration: none;      /* Menghapus garis bawah pada link */
+  color: inherit;             /* Warna link mengikuti induknya */
+}
+
+ul {
+  list-style: none;           /* Menghapus bullet points pada daftar */
+}
+
+/* =========================================
+   NAVIGASI (HEADER)
+   ========================================= */
+header {
+  background-color: var(--white);
+  padding: 1rem 5%;           /* Jarak atas-bawah 1rem, kiri-kanan 5% */
+  position: fixed;            /* Navigasi tetap di atas saat scroll */
+  width: 100%;                /* Lebar penuh */
+  top: 0;                     /* Melekat di paling atas */
+  z-index: 1000;              /* Agar navigasi selalu di atas elemen lain */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Bayangan halus di bawah navigasi */
+}
+
+nav {
+  display: flex;              /* Menggunakan Flexbox untuk tata letak */
+  justify-content: space-between; /* Logo di kiri, menu di kanan */
+  align-items: center;        /* Rata tengah secara vertikal */
+}
+
+.logo {
+  font-size: 1.5rem;          /* Ukuran teks logo */
+  font-weight: 600;           /* Ketebalan teks logo */
+  color: var(--primary-blue);
+}
+
+.logo span {
+  color: var(--dark-blue);    /* Variasi warna pada kata 'Empat' */
+}
+
+.nav-links {
+  display: flex;              /* Menu berjajar ke samping */
+}
+
+.nav-links li {
+  margin-left: 25px;          /* Jarak antar menu */
+}
+
+.nav-links a {
+  font-weight: 400;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue); /* Berubah warna saat kursor mendekat */
+}
+
+/* =========================================
+   HERO SECTION (BERANDA)
+   ========================================= */
+.hero-kelompok {
+  height: 100vh;              /* Tinggi satu layar penuh */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1350&q=80'); 
+              /* Background gambar dengan overlay gelap agar teks terbaca */
+  background-size: cover;     /* Gambar menutupi seluruh area */
+  background-position: center;/* Gambar rata tengah */
+  display: flex;              /* Flexbox untuk memposisikan teks di tengah */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  margin-top: 0;              /* Menghilangkan gap di atas */
+}
+
+.hero-overlay h1 {
+  font-size: 3.5rem;          /* Ukuran judul besar */
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.btn-cek {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 12px 30px;
+  border-radius: 50px;       /* Membuat tombol berbentuk oval/bulat */
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-cek:hover {
+  background-color: var(--dark-blue);
+  transform: translateY(-3px); /* Tombol sedikit naik saat di-hover */
+}
+
+/* =========================================
+   LAYOUT UMUM & JUDUL
+   ========================================= */
+.section-container {
+  padding: 80px 10%;          /* Ruang napas antar bagian */
+}
+
+.bg-light { background-color: var(--gray); }
+.bg-white { background-color: var(--white); }
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';                /* Menambahkan garis dekorasi di bawah judul */
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-blue);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   KARTU ANGGOTA KELOMPOK (GRID)
+   ========================================= */
+.kelompok-grid {
+  display: grid;              /* Menggunakan CSS Grid agar rapi sejajar */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+                              /* Kolom otomatis menyesuaikan lebar layar */
+  gap: 25px;                  /* Jarak antar kartu */
+}
+
+.kelompok-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;           /* Agar gambar tidak keluar dari radius kartu */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: var(--transition);
+  border: 1px solid #eee;
+}
+
+.kelompok-card:hover {
+  transform: translateY(-10px); /* Efek kartu terangkat */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-img img {
+  width: 100%;                /* Gambar menyesuaikan lebar kartu */
+  height: 250px;              /* Tinggi seragam */
+  object-fit: cover;          /* Gambar dipotong proporsional agar tidak penyet */
+}
+
+.card-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-info h3 {
+  font-size: 1.1rem;
+  color: var(--dark-blue);
+  text-transform: capitalize; /* Huruf pertama otomatis kapital */
+  margin-bottom: 5px;
+}
+
+.card-info p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   BAGIAN MAKALAH & VIDEO
+   ========================================= */
+.content-wrapper, .video-wrapper {
+  max-width: 900px;           /* Membatasi lebar konten agar enak dibaca */
+  margin: 0 auto;             /* Posisi di tengah secara horizontal */
+}
+
+.pdf-container, .video-container {
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.content-desc, .video-desc {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   RESPONSIF (MOBILE FRIENDLY)
+   ========================================= */
+@media (max-width: 768px) {
+  .nav-links { display: none; } /* Menyembunyikan menu di HP (perlu JS untuk toggle) */
+  .hero-overlay h1 { font-size: 2.2rem; }
+  .section-container { padding: 50px 5%; }
+}
