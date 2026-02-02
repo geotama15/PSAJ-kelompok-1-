@@ -205,12 +205,14 @@ nav {
    ========================================= */
 .content-wrapper, .video-wrapper {
   max-width: 900px;           /* Membatasi lebar konten agar enak dibaca */
+  
   margin: 0 auto;             /* Posisi di tengah secara horizontal */
 }
 
 .pdf-container, .video-container {
   background: #000;
   border-radius: 10px;
+  height: 00px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   margin-bottom: 20px;
